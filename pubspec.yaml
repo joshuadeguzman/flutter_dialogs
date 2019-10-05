@@ -1,8 +1,8 @@
 name: flutter_dialogs
 description: Platform aware dialog and alert widgets.
-version: 0.0.1+1
+version: 0.0.1+2
 author: Joshua de Guzman <joshua.maiquez.deguzman@gmail.com>
-homepage: https://github.com/joshuadeguzman/flutter_dialogs
+homepage: https://github.com/joshuadeguzman/flutter-dialogs
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
