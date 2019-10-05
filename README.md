@@ -43,19 +43,19 @@ Future<void> _showDialog(BuildContext context) {
     return showDialog<void>(
         context: context,
         builder: (BuildContext context) {
-        return FDBasicDialog(
-            config: _config,
-            title: "Title",
-            content: "Description",
-            buttonTitle: "OK",
-            onPressed: (dialog) {
-                // Print host OS
-                print(FDUtils.getHostPlatformOS());
+            return FDBasicDialog(
+                config: _config,
+                title: "Title",
+                content: "Description",
+                buttonTitle: "OK",
+                onPressed: (dialog) {
+                    // Print host OS
+                    print(FDUtils.getHostPlatformOS());
 
-                // Dismiss dialog
-                dialog.dismiss(context);
-            },
-        );
+                    // Dismiss dialog
+                    dialog.dismiss(context);
+                },
+            );
         },
     );
 }
