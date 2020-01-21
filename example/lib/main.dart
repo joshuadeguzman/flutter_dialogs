@@ -1,12 +1,12 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dialogs/basic_dialog.dart';
-import 'package:flutter_dialogs/config.dart';
-import 'package:flutter_dialogs/utils.dart';
+import 'package:flutter_dialogs/flutter_dialogs.dart';
 
 void main() => runApp(ExampleApp());
 
 class ExampleApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,8 +21,6 @@ class ExampleApp extends StatelessWidget {
 }
 
 class ExampleScreen extends StatelessWidget {
-  final FDConfig _config = FDConfig(FDPlatform.ALL);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +28,7 @@ class ExampleScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new RaisedButton(
+            RaisedButton(
               onPressed: () {
                 _showDialog(context);
               },
@@ -42,22 +40,29 @@ class ExampleScreen extends StatelessWidget {
     );
   }
 
-  // TODO: Move to a base abstract class
-  Future<void> _showDialog(BuildContext context) {
-    return showDialog<void>(
+  _showDialog(BuildContext context) {
+    showPlatformDialog(
       context: context,
-      builder: (BuildContext context) {
-        return FDBasicDialog(
-          config: _config,
-          title: "Title",
-          content: "Description",
-          buttonTitle: "OK",
-          onPressed: (dialog) {
-            print(FDUtils.getHostPlatformOS());
-            dialog.dismiss(context);
-          },
-        );
-      },
+      builder: (_) => BasicDialogAlert(
+        title: Text("Title"),
+        content: Text("Content"),
+        actions: <Widget>[
+          BasicDialogAction(
+            title: Text("Proceed"),
+            onPressed: () {
+              print("Current platform ${Platform.operatingSystem}");
+              Navigator.pop(context);
+            },
+          ),
+          BasicDialogAction(
+            title: Text("Cancel"),
+            onPressed: () {
+              print("Current platform ${Platform.operatingSystem}");
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
     );
   }
 }
