@@ -1,12 +1,12 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dialogs/basic_dialog.dart';
-import 'package:flutter_dialogs/config.dart';
-import 'package:flutter_dialogs/utils.dart';
+import 'package:flutter_dialogs/flutter_dialogs.dart';
 
 void main() => runApp(ExampleApp());
 
 class ExampleApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,8 +21,6 @@ class ExampleApp extends StatelessWidget {
 }
 
 class ExampleScreen extends StatelessWidget {
-  final FDConfig _config = FDConfig(FDPlatform.ALL);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +28,23 @@ class ExampleScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new RaisedButton(
+            RaisedButton(
               onPressed: () {
-                _showDialog(context);
+                _showAlert(context);
               },
-              child: const Text("Show Dialog"),
+              child: const Text("Show Alert"),
+            ),
+            RaisedButton(
+              onPressed: () {
+                _showConfirmationAlert(context);
+              },
+              child: const Text("Show Confirmation Alert"),
+            ),
+            RaisedButton(
+              onPressed: () {
+                _showListAlert(context);
+              },
+              child: const Text("Show List Alert"),
             ),
           ],
         ),
@@ -42,22 +52,91 @@ class ExampleScreen extends StatelessWidget {
     );
   }
 
-  // TODO: Move to a base abstract class
-  Future<void> _showDialog(BuildContext context) {
-    return showDialog<void>(
+  _showAlert(BuildContext context) {
+    showPlatformDialog(
       context: context,
-      builder: (BuildContext context) {
-        return FDBasicDialog(
-          config: _config,
-          title: "Title",
-          content: "Description",
-          buttonTitle: "OK",
-          onPressed: (dialog) {
-            print(FDUtils.getHostPlatformOS());
-            dialog.dismiss(context);
-          },
-        );
-      },
+      builder: (_) => BasicDialogAlert(
+        title: Text("Current Location Not Available"),
+        content:
+            Text("Your current location cannot be determined at this time."),
+        actions: <Widget>[
+          BasicDialogAction(
+            title: Text("OK"),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  _showConfirmationAlert(BuildContext context) {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => BasicDialogAlert(
+        title: Text("Discard draft?"),
+        content: Text("Action cannot be undone."),
+        actions: <Widget>[
+          BasicDialogAction(
+            title: Text("Cancel"),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          BasicDialogAction(
+            title: Text("Discard"),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  _showListAlert(BuildContext context) {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => BasicDialogAlert(
+        title: Text("Select account"),
+        content: Container(
+          height: 200,
+          child: ListView(
+            children: <Widget>[
+              _buildListSampleItem("contact@jdg.ph"),
+              _buildListSampleItem("hello@gmail.com"),
+              _buildListSampleItem("hi@joshuadeguzman.net"),
+              _buildListSampleItem("jdeguzman@freelancer.com"),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          BasicDialogAction(
+            title: Text("Cancel"),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildListSampleItem(String title) {
+    return Container(
+      height: 30,
+      margin: EdgeInsets.only(bottom: 16),
+      child: Row(
+        children: <Widget>[
+          CircleAvatar(),
+          SizedBox(width: 8),
+          Text(
+            title,
+            style: TextStyle(fontSize: 12),
+          )
+        ],
+      ),
     );
   }
 }
