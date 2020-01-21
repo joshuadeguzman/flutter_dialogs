@@ -1,6 +1,6 @@
 # flutter_dialogs
 
-Platform aware dialog and alert widgets.
+A lightweight and platform-aware plugin for showing dialogs and alerts for both Android and iOS devices.
 
 ## Features
 

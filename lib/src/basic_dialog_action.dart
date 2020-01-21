@@ -23,8 +23,8 @@ class BasicDialogAction extends BaseDialog<FlatButton, CupertinoDialogAction> {
     this.title,
   });
 
-  VoidCallback onPressed;
-  Widget title;
+  final VoidCallback onPressed;
+  final Widget title;
 
   @override
   FlatButton buildAndroidWidget(BuildContext context) {

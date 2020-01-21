@@ -1,3 +1,8 @@
+## [1.0.2] - January 21, 2020
+
+* Update some formatting
+* Update description in pubspec.yaml
+
 ## [1.0.1] - January 21, 2020
 
 * Fix broken table in README
