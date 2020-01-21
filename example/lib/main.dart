@@ -30,9 +30,21 @@ class ExampleScreen extends StatelessWidget {
           children: <Widget>[
             RaisedButton(
               onPressed: () {
-                _showDialog(context);
+                _showAlert(context);
               },
-              child: const Text("Show Dialog"),
+              child: const Text("Show Alert"),
+            ),
+            RaisedButton(
+              onPressed: () {
+                _showConfirmationAlert(context);
+              },
+              child: const Text("Show Confirmation Alert"),
+            ),
+            RaisedButton(
+              onPressed: () {
+                _showListAlert(context);
+              },
+              child: const Text("Show List Alert"),
             ),
           ],
         ),
@@ -40,27 +52,89 @@ class ExampleScreen extends StatelessWidget {
     );
   }
 
-  _showDialog(BuildContext context) {
+  _showAlert(BuildContext context) {
     showPlatformDialog(
       context: context,
       builder: (_) => BasicDialogAlert(
-        title: Text("Title"),
-        content: Text("Content"),
+        title: Text("Current Location Not Available"),
+        content:
+            Text("Your current location cannot be determined at this time."),
         actions: <Widget>[
           BasicDialogAction(
-            title: Text("Proceed"),
+            title: Text("OK"),
             onPressed: () {
-              print("Current platform ${Platform.operatingSystem}");
               Navigator.pop(context);
             },
           ),
+        ],
+      ),
+    );
+  }
+
+  _showConfirmationAlert(BuildContext context) {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => BasicDialogAlert(
+        title: Text("Discard draft?"),
+        content: Text("Action cannot be undone."),
+        actions: <Widget>[
           BasicDialogAction(
             title: Text("Cancel"),
             onPressed: () {
-              print("Current platform ${Platform.operatingSystem}");
               Navigator.pop(context);
             },
           ),
+          BasicDialogAction(
+            title: Text("Discard"),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  _showListAlert(BuildContext context) {
+    showPlatformDialog(
+      context: context,
+      builder: (_) => BasicDialogAlert(
+        title: Text("Select account"),
+        content: Container(
+          height: 200,
+          child: ListView(
+            children: <Widget>[
+              _buildListSampleItem("contact@jdg.ph"),
+              _buildListSampleItem("hello@gmail.com"),
+              _buildListSampleItem("hi@joshuadeguzman.net"),
+              _buildListSampleItem("jdeguzman@freelancer.com"),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          BasicDialogAction(
+            title: Text("Cancel"),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildListSampleItem(String title) {
+    return Container(
+      height: 30,
+      margin: EdgeInsets.only(bottom: 16),
+      child: Row(
+        children: <Widget>[
+          CircleAvatar(),
+          SizedBox(width: 8),
+          Text(
+            title,
+            style: TextStyle(fontSize: 12),
+          )
         ],
       ),
     );
