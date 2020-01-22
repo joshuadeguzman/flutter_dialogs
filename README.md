@@ -31,7 +31,7 @@ showPlatformDialog(
 ```
 Output
 
-|Android|iOS|
+|iOS|Android|
 |---|---|
 |![android-basic-dialog-alert](.github/basic_ios_alert.png)|![ios-basic-dialog-alert](.github/basic_android_alert.png)|
 
@@ -62,7 +62,7 @@ showPlatformDialog(
 ```
 Output
 
-|Android|iOS|
+|iOS|Android|
 |---|---|
 |![android-basic-dialog-confirmation](.github/basic_ios_confirmation.png)|![ios-basic-dialog-confirmation](.github/basic_android_confirmation.png)|
 
@@ -96,7 +96,7 @@ showPlatformDialog(
 ```
 Output
 
-|Android|iOS|
+|iOS|Android|
 |---|---|
 |![android-basic-dialog-list](.github/basic_ios_list.png)|![ios-basic-dialog-list](.github/basic_android_list.png)|
 
