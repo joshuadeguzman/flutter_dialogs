@@ -1,6 +1,6 @@
 name: flutter_dialogs
 description: A lightweight and platform-aware plugin for showing dialogs and alerts for both Android and iOS devices.
-version: 1.0.2
+version: 1.0.3
 author: Joshua de Guzman <joshua.maiquez.deguzman@gmail.com>
 homepage: https://github.com/joshuadeguzman/flutter-dialogs
 
