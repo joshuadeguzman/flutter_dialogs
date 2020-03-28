@@ -33,7 +33,7 @@ Output
 
 |iOS|Android|
 |---|---|
-|![android-basic-dialog-alert](.github/basic_ios_alert.png)|![ios-basic-dialog-alert](.github/basic_android_alert.png)|
+|![ios-basic-dialog-alert](.github/basic_ios_alert.png)|![android-basic-dialog-alert](.github/basic_android_alert.png)|
 
 
 Sample Confirmation
@@ -64,7 +64,7 @@ Output
 
 |iOS|Android|
 |---|---|
-|![android-basic-dialog-confirmation](.github/basic_ios_confirmation.png)|![ios-basic-dialog-confirmation](.github/basic_android_confirmation.png)|
+|![ios-basic-dialog-confirmation](.github/basic_ios_confirmation.png)|![android-basic-dialog-confirmation](.github/basic_android_confirmation.png)|
 
 Sample List
 ```
@@ -98,7 +98,7 @@ Output
 
 |iOS|Android|
 |---|---|
-|![android-basic-dialog-list](.github/basic_ios_list.png)|![ios-basic-dialog-list](.github/basic_android_list.png)|
+|![ios-basic-dialog-list](.github/basic_ios_list.png)|![android-basic-dialog-list](.github/basic_android_list.png)|
 
 ## License
 
