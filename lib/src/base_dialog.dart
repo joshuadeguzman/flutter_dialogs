@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-import 'dart:io';
-
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 typedef T BaseDialogBuilder<T>(BuildContext context);
@@ -12,13 +11,16 @@ abstract class BaseDialog<A extends Widget, I extends Widget>
     extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    if (Platform.isAndroid) {
-      return buildAndroidWidget(context);
-    } else if (Platform.isIOS) {
-      return buildiOSWidget(context);
-    }
+    final platform = Theme.of(context).platform;
 
-    throw UnsupportedError("Platform is not supported by this plugin.");
+    switch (platform) {
+      case TargetPlatform.android:
+        return buildAndroidWidget(context);
+      case TargetPlatform.iOS:
+        return buildiOSWidget(context);
+      default:
+        throw UnsupportedError("Platform is not supported by this plugin.");
+    }
   }
 
   A buildAndroidWidget(BuildContext context);

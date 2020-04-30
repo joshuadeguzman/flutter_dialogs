@@ -4,25 +4,27 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:io';
 
 Future<T> showPlatformDialog<T>({
   @required BuildContext context,
   @required WidgetBuilder builder,
   androidBarrierDismissible = false,
 }) {
-  if (Platform.isAndroid) {
-    return showDialog<T>(
-      context: context,
-      builder: builder,
-      barrierDismissible: androidBarrierDismissible,
-    );
-  } else if (Platform.isIOS) {
-    return showCupertinoDialog<T>(
-      context: context,
-      builder: builder,
-    );
-  } else {
-    throw UnsupportedError("Platform is not supported by this plugin.");
+  final platform = Theme.of(context).platform;
+
+  switch (platform) {
+    case TargetPlatform.android:
+      return showDialog<T>(
+        context: context,
+        builder: builder,
+        barrierDismissible: androidBarrierDismissible,
+      );
+    case TargetPlatform.iOS:
+      return showCupertinoDialog<T>(
+        context: context,
+        builder: builder,
+      );
+    default:
+      throw UnsupportedError("Platform is not supported by this plugin.");
   }
 }
