@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogs/flutter_dialogs.dart';
@@ -13,7 +11,6 @@ class ExampleApp extends StatelessWidget {
       title: 'Flutter Dialogs Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        platform: TargetPlatform.iOS,
       ),
       home: ExampleScreen(),
     );
