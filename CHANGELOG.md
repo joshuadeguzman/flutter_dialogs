@@ -1,3 +1,6 @@
+## [1.0.4] - May 26, 2020
+* Fix issue [#2](https://github.com/joshuadeguzman/flutter_dialogs/issues/2)
+
 ## [1.0.3] - March 28, 2020
 * Documentation fixes
 
