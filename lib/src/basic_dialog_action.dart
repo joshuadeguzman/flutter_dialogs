@@ -11,19 +11,23 @@ class BasicDialogActionData extends BaseActionData {
   BasicDialogActionData({
     VoidCallback onPressed,
     Widget title,
-  }) : super(
-          onPressed: onPressed,
-          title: title,
-        );
+  }) : super(onPressed: onPressed, title: title);
 }
 
+/// Widget class that holds the possible widgets to be shown in a [BaseDialog].
+/// For example, [FlatButton] for Android and [CupertinoDialogAction] for iOS.
 class BasicDialogAction extends BaseDialog<FlatButton, CupertinoDialogAction> {
   BasicDialogAction({
     this.onPressed,
     this.title,
   });
 
+  /// Handles the [VoidCallback] whenever an action is pressed.
   final VoidCallback onPressed;
+
+  /// Represents appropriate [Widget] to display in title section.
+  /// For example, this can be a simple [Text] widget
+  /// or a [Container] widget that contains a [Text] widget.
   final Widget title;
 
   @override

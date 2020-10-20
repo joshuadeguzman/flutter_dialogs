@@ -11,7 +11,12 @@ abstract class BaseDialogData {
     this.actions,
   });
 
+  /// Represents appropriate [Widget] to display in content section.
   final Widget content;
+
+  /// Represents appropriate [Widget] to display in title section.
   final Widget title;
+
+  /// Represents appropriate list of [Widget]'s to display in actions section.
   final List<Widget> actions;
 }
