@@ -1,27 +1,36 @@
+## [1.1.0] - October 20, 2020
+
+- Migrate example app to latest stable SDK
+- Update dependencies
+- Set min Dart SDK to 2.7.0
+- Added code docs
+
 ## [1.0.4] - May 26, 2020
-* Fix issue [#2](https://github.com/joshuadeguzman/flutter_dialogs/issues/2)
+
+- Fix issue [#2](https://github.com/joshuadeguzman/flutter_dialogs/issues/2)
 
 ## [1.0.3] - March 28, 2020
-* Documentation fixes
+
+- Documentation fixes
 
 ## [1.0.2] - January 21, 2020
 
-* Update some formatting
-* Update description in pubspec.yaml
+- Update some formatting
+- Update description in pubspec.yaml
 
 ## [1.0.1] - January 21, 2020
 
-* Fix broken table in README
+- Fix broken table in README
 
 ## [1.0.0] - January 21, 2020
 
-* Major code refactoring
+- Major code refactoring
 
 ## [0.0.1+2] - October 5, 2019
 
-* Documentation fixes
+- Documentation fixes
 
 ## [0.0.1+1] - October 5, 2019
 
-* Initial attempt to make platform aware dialog and alert widgets
-* Added `FDBasicDialog` and other core utilities
+- Initial attempt to make platform aware dialog and alert widgets
+- Added `FDBasicDialog` and other core utilities
