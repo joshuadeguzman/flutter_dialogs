@@ -24,14 +24,24 @@ class BasicDialogAlert extends BaseDialog<AlertDialog, CupertinoAlertDialog> {
     this.title,
     this.content,
     this.actions,
+    this.android,
+    this.ios,
   });
 
-  Widget title;
-  Widget content;
-  List<Widget> actions;
+  /// Represents appropriate [Widget] to display in title section.
+  final Widget title;
 
-  BaseDialogBuilder<BasicDialogAlertData> android;
-  BaseDialogBuilder<BasicDialogAlertData> ios;
+  /// Represents appropriate [Widget] to display in content section.
+  final Widget content;
+
+  /// Represents appropriate list of [Widget]'s to display in actions section.
+  final List<Widget> actions;
+
+  /// Additional configuration on top of [BasicDialogAlertData]'s default configuration.
+  final BaseDialogBuilder<BasicDialogAlertData> android;
+
+  /// Additional configuration on top of [BasicDialogAlertData]'s default configuration.
+  final BaseDialogBuilder<BasicDialogAlertData> ios;
 
   @override
   AlertDialog buildAndroidWidget(BuildContext context) {

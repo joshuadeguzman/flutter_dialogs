@@ -10,6 +10,9 @@ abstract class BaseActionData {
     this.title,
   });
 
+  /// Handles the [VoidCallback] whenever this action is pressed.
   final VoidCallback onPressed;
+
+  /// Represents appropriate [Widget] to display in title section of this action.
   final Widget title;
 }
