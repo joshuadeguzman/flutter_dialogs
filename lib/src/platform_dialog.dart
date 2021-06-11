@@ -9,6 +9,7 @@ Future<T> showPlatformDialog<T>({
   @required BuildContext context,
   @required WidgetBuilder builder,
   androidBarrierDismissible = false,
+  useRootNavigator = true,
 }) {
   final platform = Theme.of(context).platform;
 
@@ -18,11 +19,13 @@ Future<T> showPlatformDialog<T>({
         context: context,
         builder: builder,
         barrierDismissible: androidBarrierDismissible,
+        useRootNavigator: useRootNavigator,
       );
     case TargetPlatform.iOS:
       return showCupertinoDialog<T>(
         context: context,
         builder: builder,
+        useRootNavigator: useRootNavigator,
       );
     default:
       throw UnsupportedError("Platform is not supported by this plugin.");
