@@ -4,14 +4,14 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dialogs/src/base_dialog_data.dart';
 import 'package:flutter_dialogs/src/base_dialog.dart';
+import 'package:flutter_dialogs/src/base_dialog_data.dart';
 
 class BasicDialogAlertData extends BaseDialogData {
   BasicDialogAlertData({
-    Widget title,
-    Widget content,
-    List<Widget> actions,
+    Widget? title,
+    Widget? content,
+    List<Widget> actions = const <Widget>[],
   }) : super(
           title: title,
           content: content,
@@ -23,32 +23,32 @@ class BasicDialogAlert extends BaseDialog<AlertDialog, CupertinoAlertDialog> {
   BasicDialogAlert({
     this.title,
     this.content,
-    this.actions,
+    this.actions = const <Widget>[],
     this.android,
     this.ios,
   });
 
   /// Represents appropriate [Widget] to display in title section.
-  final Widget title;
+  final Widget? title;
 
   /// Represents appropriate [Widget] to display in content section.
-  final Widget content;
+  final Widget? content;
 
   /// Represents appropriate list of [Widget]'s to display in actions section.
   final List<Widget> actions;
 
   /// Additional configuration on top of [BasicDialogAlertData]'s default configuration.
-  final BaseDialogBuilder<BasicDialogAlertData> android;
+  final BaseDialogBuilder<BasicDialogAlertData>? android;
 
   /// Additional configuration on top of [BasicDialogAlertData]'s default configuration.
-  final BaseDialogBuilder<BasicDialogAlertData> ios;
+  final BaseDialogBuilder<BasicDialogAlertData>? ios;
 
   @override
   AlertDialog buildAndroidWidget(BuildContext context) {
-    BasicDialogAlertData data;
+    BasicDialogAlertData? data;
 
     if (android != null) {
-      data = android(context);
+      data = android?.call(context);
     }
 
     return AlertDialog(
@@ -60,10 +60,10 @@ class BasicDialogAlert extends BaseDialog<AlertDialog, CupertinoAlertDialog> {
 
   @override
   CupertinoAlertDialog buildiOSWidget(BuildContext context) {
-    BasicDialogAlertData data;
+    BasicDialogAlertData? data;
 
     if (ios != null) {
-      data = ios(context);
+      data = ios?.call(context);
     }
 
     return CupertinoAlertDialog(
