@@ -9,8 +9,8 @@ import 'package:flutter_dialogs/src/base_dialog.dart';
 
 class BasicDialogActionData extends BaseActionData {
   BasicDialogActionData({
-    VoidCallback onPressed,
-    Widget title,
+    VoidCallback? onPressed,
+    Widget? title,
   }) : super(onPressed: onPressed, title: title);
 }
 
@@ -23,12 +23,12 @@ class BasicDialogAction extends BaseDialog<FlatButton, CupertinoDialogAction> {
   });
 
   /// Handles the [VoidCallback] whenever an action is pressed.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   /// Represents appropriate [Widget] to display in title section.
   /// For example, this can be a simple [Text] widget
   /// or a [Container] widget that contains a [Text] widget.
-  final Widget title;
+  final Widget? title;
 
   @override
   FlatButton buildAndroidWidget(BuildContext context) {

@@ -12,11 +12,11 @@ abstract class BaseDialogData {
   });
 
   /// Represents appropriate [Widget] to display in content section.
-  final Widget content;
+  final Widget? content;
 
   /// Represents appropriate [Widget] to display in title section.
-  final Widget title;
+  final Widget? title;
 
   /// Represents appropriate list of [Widget]'s to display in actions section.
-  final List<Widget> actions;
+  final List<Widget>? actions;
 }

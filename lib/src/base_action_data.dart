@@ -11,8 +11,8 @@ abstract class BaseActionData {
   });
 
   /// Handles the [VoidCallback] whenever this action is pressed.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   /// Represents appropriate [Widget] to display in title section of this action.
-  final Widget title;
+  final Widget? title;
 }
