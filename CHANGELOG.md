@@ -1,3 +1,6 @@
+## [2.0.0] - June 17, 2021
+- Migrate to null safety #8. Thank you @Bersh
+
 ## [1.1.0] - October 20, 2020
 
 - Migrate example app to latest stable SDK
