@@ -15,12 +15,10 @@ class BasicDialogActionData extends BaseActionData {
 }
 
 /// Widget class that holds the possible widgets to be shown in a [BaseDialog].
-/// For example, [FlatButton] for Android and [CupertinoDialogAction] for iOS.
-class BasicDialogAction extends BaseDialog<FlatButton, CupertinoDialogAction> {
-  BasicDialogAction({
-    this.onPressed,
-    this.title,
-  });
+/// For example, [TextButton] for Android and [CupertinoDialogAction] for iOS.
+class BasicDialogAction extends BaseDialog<TextButton, CupertinoDialogAction> {
+  BasicDialogAction(
+      {this.onPressed, this.title, this.iosIsDestructiveAction = false, this.iosIsDefaultAction = false});
 
   /// Handles the [VoidCallback] whenever an action is pressed.
   final VoidCallback? onPressed;
@@ -30,9 +28,28 @@ class BasicDialogAction extends BaseDialog<FlatButton, CupertinoDialogAction> {
   /// or a [Container] widget that contains a [Text] widget.
   final Widget? title;
 
+  /// Whether this action destroys an object.
+  ///
+  /// For example, an action that deletes an email is destructive.
+  ///
+  /// Defaults to false and cannot be null.
+  /// Only used on iOS
+  final bool iosIsDestructiveAction;
+
+  /// Set to true if button is the default choice in the dialog.
+  ///
+  /// Default buttons have bold text. Similar to
+  /// [UIAlertController.preferredAction](https://developer.apple.com/documentation/uikit/uialertcontroller/1620102-preferredaction),
+  /// but more than one action can have this attribute set to true in the same
+  /// [CupertinoAlertDialog]
+  ///
+  /// This parameters defaults to false and cannot be null.
+  /// Only used on iOS
+  final bool iosIsDefaultAction;
+
   @override
-  FlatButton buildAndroidWidget(BuildContext context) {
-    return FlatButton(
+  TextButton buildAndroidWidget(BuildContext context) {
+    return TextButton(
       onPressed: onPressed,
       child: title ?? Container(),
     );
@@ -43,6 +60,8 @@ class BasicDialogAction extends BaseDialog<FlatButton, CupertinoDialogAction> {
     return CupertinoDialogAction(
       onPressed: onPressed,
       child: title ?? Container(),
+      isDestructiveAction: iosIsDestructiveAction,
+      isDefaultAction: iosIsDefaultAction,
     );
   }
 }
