@@ -23,7 +23,7 @@ class BasicDialogAlert extends BaseDialog<AlertDialog, CupertinoAlertDialog> {
   BasicDialogAlert({
     this.title,
     this.content,
-    this.actions = const <Widget>[],
+    this.actions,
     this.android,
     this.ios,
   });
@@ -35,7 +35,7 @@ class BasicDialogAlert extends BaseDialog<AlertDialog, CupertinoAlertDialog> {
   final Widget? content;
 
   /// Represents appropriate list of [Widget]'s to display in actions section.
-  final List<Widget> actions;
+  final List<Widget>? actions;
 
   /// Additional configuration on top of [BasicDialogAlertData]'s default configuration.
   final BaseDialogBuilder<BasicDialogAlertData>? android;
@@ -69,7 +69,7 @@ class BasicDialogAlert extends BaseDialog<AlertDialog, CupertinoAlertDialog> {
     return CupertinoAlertDialog(
       title: data?.title ?? title,
       content: data?.content ?? content,
-      actions: data?.actions ?? actions,
+      actions: data?.actions ?? actions ?? [],
     );
   }
 }
