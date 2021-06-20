@@ -1,3 +1,7 @@
+## [2.1.0] - June 20, 2021
+- Added iosIsDestructiveAction and iosIsDefaultAction params. Thank you @Bersh
+- Allowing null actions for Android AlertDialog. Thank you @Bersh
+
 ## [2.0.0] - June 17, 2021
 - Migrate to null safety #8. Thank you @Bersh
 
