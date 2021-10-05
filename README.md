@@ -14,7 +14,7 @@ Sample Alert
 ```
 showPlatformDialog(
   context: context,
-  builder: (_) => BasicDialogAlert(
+  builder: (context) => BasicDialogAlert(
     title: Text("Current Location Not Available"),
     content:
         Text("Your current location cannot be determined at this time."),
@@ -40,7 +40,7 @@ Sample Confirmation
 ```
 showPlatformDialog(
   context: context,
-  builder: (_) => BasicDialogAlert(
+  builder: (context) => BasicDialogAlert(
     title: Text("Discard draft?"),
     content: Text("Action cannot be undone."),
     actions: <Widget>[
@@ -70,7 +70,7 @@ Sample List
 ```
 showPlatformDialog(
   context: context,
-  builder: (_) => BasicDialogAlert(
+  builder: (context) => BasicDialogAlert(
     title: Text("Select account"),
     content: Container(
       height: 200,
