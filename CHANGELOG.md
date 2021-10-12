@@ -1,3 +1,6 @@
+## [2.1.1] - October 12, 2021
+- Update README with explicit `context` parameter for demos
+
 ## [2.1.0] - June 20, 2021
 - Added iosIsDestructiveAction and iosIsDefaultAction params. Thank you @Bersh
 - Allowing null actions for Android AlertDialog. Thank you @Bersh
