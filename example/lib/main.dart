@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogs/flutter_dialogs.dart';
 
@@ -8,7 +7,7 @@ class ExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Dialogs Example',
+      title: "Flutter Dialogs Example",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -22,28 +21,26 @@ class ExampleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            RaisedButton(
-              onPressed: () {
-                _showAlert(context);
-              },
-              child: const Text("Show Alert"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                _showConfirmationAlert(context);
-              },
-              child: const Text("Show Confirmation Alert"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                _showListAlert(context);
-              },
-              child: const Text("Show List Alert"),
-            ),
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () => _showAlert(context),
+                child: const Text("Show Alert"),
+              ),
+              ElevatedButton(
+                onPressed: () => _showConfirmationAlert(context),
+                child: const Text("Show Confirmation Alert"),
+              ),
+              ElevatedButton(
+                onPressed: () =>  _showListAlert(context),
+                child: const Text("Show List Alert"),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -97,15 +94,17 @@ class ExampleScreen extends StatelessWidget {
       context: context,
       builder: (_) => BasicDialogAlert(
         title: Text("Select account"),
-        content: Container(
-          height: 200,
-          child: ListView(
-            children: <Widget>[
-              _buildListSampleItem("contact@jdg.ph"),
-              _buildListSampleItem("hello@gmail.com"),
-              _buildListSampleItem("hi@joshuadeguzman.net"),
-              _buildListSampleItem("jdeguzman@freelancer.com"),
-            ],
+        content: SingleChildScrollView(
+          child: Container(
+            height: 300,
+            child: Column(
+              children: <Widget>[
+                _buildListItem("contact@jdg.ph"),
+                _buildListItem("hello@gmail.com"),
+                _buildListItem("hi@joshuadeguzman.net"),
+                _buildListItem("jdeguzman@freelancer.com"),
+              ],
+            ),
           ),
         ),
         actions: <Widget>[
@@ -120,20 +119,10 @@ class ExampleScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildListSampleItem(String title) {
-    return Container(
-      height: 30,
-      margin: EdgeInsets.only(bottom: 16),
-      child: Row(
-        children: <Widget>[
-          CircleAvatar(),
-          SizedBox(width: 8),
-          Text(
-            title,
-            style: TextStyle(fontSize: 12),
-          )
-        ],
-      ),
+  ListTile _buildListItem(String title) {
+    return ListTile(
+      title: Text(title),
+      leading: CircleAvatar(),
     );
   }
 }
