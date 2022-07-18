@@ -36,7 +36,7 @@ class ExampleScreen extends StatelessWidget {
                 child: const Text("Show Confirmation Alert"),
               ),
               ElevatedButton(
-                onPressed: () =>  _showListAlert(context),
+                onPressed: () => _showListAlert(context),
                 child: const Text("Show List Alert"),
               ),
             ],
