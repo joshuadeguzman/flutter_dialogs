@@ -78,7 +78,7 @@ showPlatformDialog(
         children: <Widget>[
           _buildListSampleItem("joshua@joshuamdeguzman.com"),
           _buildListSampleItem("hello@gmail.com"),
-          _buildListSampleItem("hi@joshuadeguzman.net"),
+          _buildListSampleItem("joshua@flutter.ph"),
           _buildListSampleItem("jdeguzman@freelancer.com"),
         ],
       ),
