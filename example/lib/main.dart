@@ -36,7 +36,7 @@ class ExampleScreen extends StatelessWidget {
                 child: const Text("Show Confirmation Alert"),
               ),
               ElevatedButton(
-                onPressed: () =>  _showListAlert(context),
+                onPressed: () => _showListAlert(context),
                 child: const Text("Show List Alert"),
               ),
             ],
@@ -95,16 +95,15 @@ class ExampleScreen extends StatelessWidget {
       builder: (_) => BasicDialogAlert(
         title: Text("Select account"),
         content: SingleChildScrollView(
-          child: Container(
-            height: 300,
-            child: Column(
-              children: <Widget>[
-                _buildListItem("contact@jdg.ph"),
-                _buildListItem("hello@gmail.com"),
-                _buildListItem("hi@joshuadeguzman.net"),
-                _buildListItem("jdeguzman@freelancer.com"),
-              ],
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              _buildListItem("hi@example.com"),
+              _buildListItem("joshua@joshuamdeguzman.com"),
+              _buildListItem("joshua@flutter.ph"),
+              _buildListItem("jdeguzman@freelancer.com"),
+              _buildListItem("team@flutter.ph"),
+            ],
           ),
         ),
         actions: <Widget>[
@@ -119,10 +118,20 @@ class ExampleScreen extends StatelessWidget {
     );
   }
 
-  ListTile _buildListItem(String title) {
-    return ListTile(
-      title: Text(title),
-      leading: CircleAvatar(),
+  Widget _buildListItem(String title) {
+    return Column(
+      children: [
+        Container(
+          height: 48,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(child: Text(title)),
+            ],
+          ),
+        ),
+        const Divider(height: 0.5),
+      ],
     );
   }
 }

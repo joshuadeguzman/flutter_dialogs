@@ -1,3 +1,7 @@
+## [2.2.0] - July 18, 2022
+- Update Flutter and Dark SDK
+- Fix deprecated examples and Gradle issues
+
 ## [2.1.1] - October 12, 2021
 - Update README with explicit `context` parameter for demos
 

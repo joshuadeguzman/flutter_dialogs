@@ -76,9 +76,9 @@ showPlatformDialog(
       height: 200,
       child: ListView(
         children: <Widget>[
-          _buildListSampleItem("contact@jdg.ph"),
+          _buildListSampleItem("joshua@joshuamdeguzman.com"),
           _buildListSampleItem("hello@gmail.com"),
-          _buildListSampleItem("hi@joshuadeguzman.net"),
+          _buildListSampleItem("joshua@flutter.ph"),
           _buildListSampleItem("jdeguzman@freelancer.com"),
         ],
       ),
