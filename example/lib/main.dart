@@ -99,7 +99,7 @@ class ExampleScreen extends StatelessWidget {
             height: 300,
             child: Column(
               children: <Widget>[
-                _buildListItem("contact@jdg.ph"),
+                _buildListItem("joshua@joshuamdeguzman.com"),
                 _buildListItem("hello@gmail.com"),
                 _buildListItem("hi@joshuadeguzman.net"),
                 _buildListItem("jdeguzman@freelancer.com"),
