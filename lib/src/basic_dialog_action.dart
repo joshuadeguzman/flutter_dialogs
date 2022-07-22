@@ -48,7 +48,7 @@ class BasicDialogAction extends BaseDialog<TextButton, CupertinoDialogAction> {
   final bool iosIsDefaultAction;
 
   @override
-  TextButton buildAndroidWidget(BuildContext context) {
+  TextButton buildMaterialWidget(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
       child: title ?? Container(),
@@ -56,7 +56,7 @@ class BasicDialogAction extends BaseDialog<TextButton, CupertinoDialogAction> {
   }
 
   @override
-  CupertinoDialogAction buildiOSWidget(BuildContext context) {
+  CupertinoDialogAction buildCupertinoWidget(BuildContext context) {
     return CupertinoDialogAction(
       onPressed: onPressed,
       child: title ?? Container(),

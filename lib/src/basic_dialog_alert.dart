@@ -44,7 +44,7 @@ class BasicDialogAlert extends BaseDialog<AlertDialog, CupertinoAlertDialog> {
   final BaseDialogBuilder<BasicDialogAlertData>? ios;
 
   @override
-  AlertDialog buildAndroidWidget(BuildContext context) {
+  AlertDialog buildMaterialWidget(BuildContext context) {
     BasicDialogAlertData? data;
 
     if (android != null) {
@@ -59,7 +59,7 @@ class BasicDialogAlert extends BaseDialog<AlertDialog, CupertinoAlertDialog> {
   }
 
   @override
-  CupertinoAlertDialog buildiOSWidget(BuildContext context) {
+  CupertinoAlertDialog buildCupertinoWidget(BuildContext context) {
     BasicDialogAlertData? data;
 
     if (ios != null) {
