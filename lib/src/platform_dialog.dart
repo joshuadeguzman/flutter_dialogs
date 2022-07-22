@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 Future<T?> showPlatformDialog<T>({
@@ -11,23 +12,32 @@ Future<T?> showPlatformDialog<T>({
   androidBarrierDismissible = false,
   useRootNavigator = true,
 }) {
-  final platform = Theme.of(context).platform;
+  if (kIsWeb) {
+    return showDialog<T>(
+      context: context,
+      builder: builder,
+      barrierDismissible: androidBarrierDismissible,
+      useRootNavigator: useRootNavigator,
+    );
+  } else {
+    final platform = Theme.of(context).platform;
 
-  switch (platform) {
-    case TargetPlatform.android:
-      return showDialog<T>(
-        context: context,
-        builder: builder,
-        barrierDismissible: androidBarrierDismissible,
-        useRootNavigator: useRootNavigator,
-      );
-    case TargetPlatform.iOS:
-      return showCupertinoDialog<T>(
-        context: context,
-        builder: builder,
-        useRootNavigator: useRootNavigator,
-      );
-    default:
-      throw UnsupportedError("Platform is not supported by this plugin.");
+    switch (platform) {
+      case TargetPlatform.android:
+        return showDialog<T>(
+          context: context,
+          builder: builder,
+          barrierDismissible: androidBarrierDismissible,
+          useRootNavigator: useRootNavigator,
+        );
+      case TargetPlatform.iOS:
+        return showCupertinoDialog<T>(
+          context: context,
+          builder: builder,
+          useRootNavigator: useRootNavigator,
+        );
+      default:
+        throw UnsupportedError("Platform is not supported by this plugin.");
+    }
   }
 }
