@@ -1,3 +1,7 @@
+## [3.0.0] - July 22, 2022
+- Add support for the web and other platforms
+- Fix references to the design language of the native platforms
+
 ## [2.2.0] - July 18, 2022
 - Update Flutter and Dark SDK
 - Fix deprecated examples and Gradle issues
