@@ -23,23 +23,28 @@ class ExampleScreen extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () => _showAlert(context),
-                child: const Text("Show Alert"),
-              ),
-              ElevatedButton(
-                onPressed: () => _showConfirmationAlert(context),
-                child: const Text("Show Confirmation Alert"),
-              ),
-              ElevatedButton(
-                onPressed: () => _showListAlert(context),
-                child: const Text("Show List Alert"),
-              ),
-            ],
+          child: Container(
+            width: 300,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () => _showAlert(context),
+                  child: const Text("Show Alert"),
+                ),
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () => _showConfirmationAlert(context),
+                  child: const Text("Show Confirmation Alert"),
+                ),
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () => _showListAlert(context),
+                  child: const Text("Show List Alert"),
+                ),
+              ],
+            ),
           ),
         ),
       ),
