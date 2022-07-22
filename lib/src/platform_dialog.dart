@@ -23,6 +23,9 @@ Future<T?> showPlatformDialog<T>({
     final platform = Theme.of(context).platform;
 
     switch (platform) {
+      case TargetPlatform.fuchsia:
+      case TargetPlatform.linux:
+      case TargetPlatform.windows:
       case TargetPlatform.android:
         return showDialog<T>(
           context: context,
@@ -30,6 +33,7 @@ Future<T?> showPlatformDialog<T>({
           barrierDismissible: androidBarrierDismissible,
           useRootNavigator: useRootNavigator,
         );
+      case TargetPlatform.macOS:
       case TargetPlatform.iOS:
         return showCupertinoDialog<T>(
           context: context,

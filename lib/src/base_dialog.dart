@@ -18,8 +18,12 @@ abstract class BaseDialog<A extends Widget, I extends Widget>
       final platform = Theme.of(context).platform;
 
       switch (platform) {
+        case TargetPlatform.fuchsia:
+        case TargetPlatform.linux:
+        case TargetPlatform.windows:
         case TargetPlatform.android:
           return buildMaterialWidget(context);
+        case TargetPlatform.macOS:
         case TargetPlatform.iOS:
           return buildCupertinoWidget(context);
         default:
