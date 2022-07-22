@@ -21,7 +21,7 @@ abstract class BaseDialog<A extends Widget, I extends Widget>
         case TargetPlatform.android:
           return buildMaterialWidget(context);
         case TargetPlatform.iOS:
-          return buildiOSWidget(context);
+          return buildCupertinoWidget(context);
         default:
           throw UnsupportedError("Platform is not supported by this plugin.");
       }
@@ -30,5 +30,5 @@ abstract class BaseDialog<A extends Widget, I extends Widget>
 
   A buildMaterialWidget(BuildContext context);
 
-  I buildiOSWidget(BuildContext context);
+  I buildCupertinoWidget(BuildContext context);
 }
