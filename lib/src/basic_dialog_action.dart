@@ -11,7 +11,10 @@ class BasicDialogActionData extends BaseActionData {
   BasicDialogActionData({
     VoidCallback? onPressed,
     Widget? title,
-  }) : super(onPressed: onPressed, title: title,);
+  }) : super(
+          onPressed: onPressed,
+          title: title,
+        );
 }
 
 /// Widget class that holds the possible widgets to be shown in a [BaseDialog].
